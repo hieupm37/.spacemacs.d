@@ -26,6 +26,7 @@ values."
      auto-completion
      (c-c++ :variables
            c-c++-default-mode-for-headers 'c++-mode)
+     python
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -255,11 +256,27 @@ layers configuration. You are free to put any user code."
     (add-hook 'c-mode-common-hook 'google-set-c-style)
     (add-hook 'c-mode-common-hook 'google-make-newline-indent))
 
+  (use-package objc-mode
+    :mode "\\.mm\\'")
+
+  ;; (use-package python-mode
+  ;;   :init
+  ;;   (define-derived-mode gyp-mode python-mode "Gyp"
+  ;;     "Major mode for editing GYP files"
+  ;;     (setq indent-tabs-mode nil
+  ;;           tab-width 2
+  ;;           python-indent 2))
+  ;;   :config
+  ;;   (progn
+  ;;     (add-to-list 'auto-mode-alist '("\\.gyp$" . gyp-mode))
+  ;;     (add-to-list 'auto-mode-alist '("\\.gypi$" . gyp-mode))))
+
   (setq powerline-default-separator 'bar)
 
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
 
   (setq projectile-enable-caching t)
+  (setq helm-echo-input-in-header-line nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
