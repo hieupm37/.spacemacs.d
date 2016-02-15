@@ -29,17 +29,18 @@ values."
      python
      ;; better-defaults
      emacs-lisp
+     gtags
      ;; git
-     ;; markdown
+     markdown
      org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
+     spell-checking
      ;; syntax-checking
      ;; version-control
      themes-megapack
-     semantic
+     ;; semantic
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -102,13 +103,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(moe-dark
-                         spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         solarized-dark
-                         leuven
-                         monokai
-                         zenburn)
+                         spacemacs-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -245,6 +240,8 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  (when (eq system-type 'windows-nt)
+    (setq ispell-program-name "C:\\Program Files (x86)\\Aspell\\bin\\aspell.exe"))
  )
 
 (defun dotspacemacs/user-config ()
@@ -271,7 +268,7 @@ layers configuration. You are free to put any user code."
   ;;     (add-to-list 'auto-mode-alist '("\\.gyp$" . gyp-mode))
   ;;     (add-to-list 'auto-mode-alist '("\\.gypi$" . gyp-mode))))
 
-  (setq powerline-default-separator 'bar)
+  ;; (setq powerline-default-separator 'bar)
 
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
 
