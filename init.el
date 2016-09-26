@@ -40,6 +40,7 @@ values."
             shell-default-position 'bottom)
      spell-checking
      ;; syntax-checking
+     react
      ;; version-control
      ;; themes-megapack
      ;; semantic
@@ -262,6 +263,20 @@ layers configuration. You are free to put any user code."
   (use-package objc-mode
     :mode "\\.mm\\'")
 
+  (setq-default
+   ;; js2-mode
+   js2-basic-offset 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2)
+
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
   ;; (use-package python-mode
   ;;   :init
   ;;   (define-derived-mode gyp-mode python-mode "Gyp"
