@@ -309,3 +309,5 @@ layers configuration. You are free to put any user code."
   ;; Use spacemacs as git editor
   (global-git-commit-mode t)
   )
+
+;; hieupm 
